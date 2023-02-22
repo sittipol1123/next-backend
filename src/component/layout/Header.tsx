@@ -39,7 +39,7 @@ export default function Header(props: HeaderProps) {
               </IconButton>
             </Grid>
             <Grid item xs />
-            <Grid item>
+            {/* <Grid item>
               <Link
                 href="/"
                 variant="body2"
@@ -55,17 +55,17 @@ export default function Header(props: HeaderProps) {
               >
                 Go to docs
               </Link>
-            </Grid>
-            <Grid item>
+            </Grid> */}
+            {/* <Grid item>
               <Tooltip title="Alerts • No alerts">
                 <IconButton color="inherit">
                   <NotificationsIcon />
                 </IconButton>
               </Tooltip>
-            </Grid>
+            </Grid> */}
             <Grid item>
               <IconButton color="inherit" sx={{ p: 0.5 }}>
-                <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
+                <Avatar src="https://img.game8.co/3332448/6a22c735ab5ab9db5cd251ecbf4ab2a4.png/show" alt="My Avatar" />
               </IconButton>
             </Grid>
           </Grid>
@@ -79,7 +79,7 @@ export default function Header(props: HeaderProps) {
         sx={{ zIndex: 0 }}
       >
         <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
+          {/* <Grid container alignItems="center" spacing={1}>
             <Grid item xs>
               <Typography color="inherit" variant="h5" component="h1">
                 Authentication
@@ -102,7 +102,7 @@ export default function Header(props: HeaderProps) {
                 </IconButton>
               </Tooltip>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Toolbar>
       </AppBar>
       {/* <AppBar component="div" position="static" elevation={0} sx={{ zIndex: 0 }}>
