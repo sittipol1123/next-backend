@@ -84,7 +84,7 @@ export default function SignIn() {
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" sx={{ color: '#000' }}>
             Sign in
           </Typography>
           <Box
@@ -118,6 +118,7 @@ export default function SignIn() {
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
+              sx={{ color: 'rgb(118, 118, 118)' }}
             />
             <Button
               type="submit"
