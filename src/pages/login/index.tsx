@@ -60,7 +60,6 @@ export default function SignIn() {
       password: data.password,
       redirect: false
     });
-    console.log(res);
 
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

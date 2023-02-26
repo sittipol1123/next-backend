@@ -1,4 +1,5 @@
 import NextAuth, { Account, DefaultSession, User } from "next-auth";
+import { AdapterUser } from "next-auth/adapters";
 
 declare module "next-auth" {
   interface Session {
@@ -10,7 +11,7 @@ declare module "next-auth" {
       password: string;
       email: string;
       avatar: string;
-    }
+    }| AdapterUser | undefined;
   }
 }
 
@@ -24,7 +25,7 @@ declare module "next-auth/jwt" {
       password: string;
       email: string;
       avatar: string;
-    }
+    } | AdapterUser | undefined;
   }
 }
 
@@ -39,20 +40,6 @@ declare module "next-auth" {
     avatar: string;
   }
 }
-
-// declare module "next-auth/jwt" {
-//   interface User {
-//     user: {
-//       id: number;
-//       fname: string;
-//       lname: string;
-//       username: string;
-//       password: string;
-//       email: string;
-//       avatar: string;
-//     };
-//   }
-// }
 
 declare module "next-auth" {
   interface Session {

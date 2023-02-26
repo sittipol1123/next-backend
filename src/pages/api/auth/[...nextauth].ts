@@ -1,16 +1,6 @@
 import NextAuth, { NextAuthOptions, Account } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-type Myuser = {
-  id: number;
-  fname: string;
-  lname: string;
-  username: string;
-  password: string;
-  email: string;
-  avatar: string;
-}
-
 const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
@@ -45,7 +35,6 @@ const authOptions: NextAuthOptions = {
   secret: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx5mLg=",
   callbacks: {
     async jwt({token, user, account}) {
-      // console.log(user);
       if (account) {
         token.accessToken = account.access_token;
         token.user = user;
