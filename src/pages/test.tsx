@@ -13,12 +13,11 @@ export default function test() {
       Router.replace("login");
     }
   }, [session.status])
-  
   return (
     <Paperbase>
       {/* <div>test</div>
       <button onClick={() => signIn()}>login</button> */}
-      <div>{session.data?.user?.name}</div>
+      <div style={{color: 'black'}}>{session.data?.user?.avatar}</div>
     </Paperbase>
   );
 }
