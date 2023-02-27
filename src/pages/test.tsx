@@ -7,16 +7,16 @@ import Router from "next/router";
 
 export default function test() {
   const session = useSession();
-  console.log(session)
-  useEffect(() => {
-    if(session.status === "unauthenticated"){
-      Router.replace("login");
-    }
-  }, [session.status])
+  // console.log(session)
+  // useEffect(() => {
+  //   if(session.status === "unauthenticated"){
+  //     Router.replace("login");
+  //   }
+  // }, [session.status])
   return (
     <Paperbase>
-      {/* <div>test</div>
-      <button onClick={() => signIn()}>login</button> */}
+      {/* <div>test</div> */}
+      <button onClick={() => signIn()}>login</button>
       <div style={{color: 'black'}}>{session.data?.user?.avatar}</div>
     </Paperbase>
   );

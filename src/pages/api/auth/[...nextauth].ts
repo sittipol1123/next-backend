@@ -26,7 +26,7 @@ const authOptions: NextAuthOptions = {
         const json = await res.json();
         // console.log(json);
         if (json.status == "ok") {
-          return json.user;
+          return json;
         }
         return null;
       },
@@ -35,9 +35,11 @@ const authOptions: NextAuthOptions = {
   secret: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx5mLg=",
   callbacks: {
     async jwt({token, user, account}) {
-      if (account) {
-        token.accessToken = account.access_token;
-        token.user = user;
+      // console.log(account?.access_token);
+      if (user) {
+        // token.accessToken = account.access_token;
+        token.accessToken = user?.accessToken;
+        token.user = user?.user;
       }
       return token;
     },

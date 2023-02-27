@@ -18,6 +18,7 @@ import TimerIcon from "@mui/icons-material/Timer";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PhonelinkSetupIcon from "@mui/icons-material/PhonelinkSetup";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import PersonIcon from '@mui/icons-material/Person';
 import { useRouter } from "next/router";
 
 const categories = [
@@ -108,6 +109,18 @@ export default function Navigator(props: DrawerProps) {
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText>test</ListItemText>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton
+              selected={router.pathname == "/users" ? true : false}
+              sx={item}
+              href="/users"
+            >
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
+              <ListItemText>User Manage</ListItemText>
             </ListItemButton>
           </ListItem>
           <Divider sx={{ mt: 2 }} />
