@@ -18,28 +18,26 @@ const authOptions: NextAuthOptions = {
         //   throw new Error('invalid cre')
         // }
         const arr = { username: username, password: password };
-        const res = await fetch("https://www.melivecode.com/api/login", {
+        const res = await fetch("http://localhost:5000/login", {
           method: "POST",
           body: JSON.stringify(arr),
           headers: { "Content-Type": "application/json" },
         });
         const json = await res.json();
-        // console.log(json);
         if (json.status == "ok") {
-          return json;
+          return json.user;
         }
         return null;
       },
     }),
   ],
-  secret: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx5mLg=",
+  secret: "secret",
   callbacks: {
     async jwt({token, user, account}) {
-      // console.log(account?.access_token);
       if (user) {
         // token.accessToken = account.access_token;
-        token.accessToken = user?.accessToken;
-        token.user = user?.user;
+        token.accessToken = user?.token;
+        token.user = user;
       }
       return token;
     },

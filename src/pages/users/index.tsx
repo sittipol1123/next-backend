@@ -1,5 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import Paperbase from "@/component/layout";
+import Router from "next/router";
 
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -22,10 +24,12 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import TableHead from '@mui/material/TableHead';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function index() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [users, setUser] = useState()
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -46,13 +50,16 @@ export default function index() {
   };
   return (
     <Paperbase>
-      {/* <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, marginBottom: 2 }}>
         <CardContent>
+          <Button size="small" variant="outlined" onClick={() => { Router.push('users/create') }}>
+            <AddIcon></AddIcon>
+            เพิ่มข้อมูล
+          </Button>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card> */}
+        {/* <CardActions>
+        </CardActions> */}
+      </Card>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
         <TableHead>

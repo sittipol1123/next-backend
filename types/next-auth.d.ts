@@ -22,13 +22,14 @@ interface RootObject {
 declare module "next-auth" {
   interface Session {
     user: {
-      id: number;
-      fname: string;
-      lname: string;
-      username: string;
-      password: string;
+      uuid: string;
+      name: string;
       email: string;
-      avatar: string;
+      username: string;
+      role: string;
+      token: string;
+      createdAt: Date;
+      updatedAt: Date;
     } | undefined
   }
 }
@@ -36,13 +37,14 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
   interface JWT {
     user: {
-      id: number;
-      fname: string;
-      lname: string;
-      username: string;
-      password: string;
+      uuid: string;
+      name: string;
       email: string;
-      avatar: string;
+      username: string;
+      role: string;
+      token: string;
+      createdAt: Date;
+      updatedAt: Date;
     } | undefined
   }
 }
@@ -61,11 +63,14 @@ declare module "next-auth/jwt" {
 
 declare module "next-auth" {
   interface User {
-    status: string;
-    message: string;
-    accessToken: string;
-    expiresIn: number;
-    user: Users;
+    uuid: string;
+    name: string;
+    email: string;
+    username: string;
+    role: string;
+    token: string;
+    createdAt: Date;
+    updatedAt: Date;
   }
 }
 
