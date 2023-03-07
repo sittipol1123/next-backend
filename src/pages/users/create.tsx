@@ -16,7 +16,6 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import SendIcon from "@mui/icons-material/Send";
 import Breadcrum from "@/component/layout/Breadcrum";
-import CardHeader from "@mui/material/CardHeader";
 
 interface Users {
   name?: string;
@@ -40,13 +39,13 @@ export default function create() {
   });
   const confirmsubmit = async () => {
     setData({ ...data, token: session.data?.accessToken });
-    console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
     const res = await fetch("http://localhost:5000/users", {
       method: "POST",
       body: JSON.stringify(data),
-      headers: { "Access-Control-Allow-Origin": "*","Content-Type": "application/json" },
+      headers: { "Access-Control-Allow-Origin": "*", "Content-Type": "application/json" },
     });
-    console.log(res);
+    // console.log(res);
   };
 
   return (

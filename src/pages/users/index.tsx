@@ -1,7 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Paperbase from "@/component/layout";
 import Router from "next/router";
+import { Users } from "types/public-type";
 
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -29,7 +30,17 @@ import AddIcon from '@mui/icons-material/Add';
 export default function index() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [users, setUser] = useState()
+  const [users, setUser] = useState<Users[] | null>(null);
+
+  const fetchdata = async() => {
+    const res = await fetch('http://localhost:5000/users');
+    const json = await res.json();
+    // console.log(rows);
+    setUser(json);
+  }
+  useEffect(() => {
+    fetchdata();
+  }, []);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
